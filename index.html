@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Maracuyá</title>
+    <title>Nectaryá - Página de Maracuyá</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
         header {
             text-align: center;
             padding: 20px;
-            background-color: #f2f2f2;
+            background-color: #FFD700; /* Amarillo */
         }
 
         section {
@@ -21,17 +21,29 @@
         }
 
         h2 {
-            color: #007BFF;
+            color: #FFD700; /* Amarillo */
         }
 
         p {
             line-height: 1.6;
         }
 
+        button {
+            background-color: #FFD700; /* Amarillo */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FFEA00; /* Amarillo claro al pasar el mouse */
+        }
+
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #f2f2f2;
+            background-color: #FFD700; /* Amarillo */
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -41,31 +53,34 @@
 <body>
 
     <header>
-        <h1>Página de Maracuyá</h1>
+        <h1>Nectaryá - Página de Maracuyá</h1>
     </header>
 
     <section>
-        <h2>¿Qué es el Maracuyá?</h2>
-        <p>El maracuyá es una fruta tropical también conocida como fruta de la pasión. Es conocida por su sabor único y sus beneficios para la salud.</p>
+        <h2>¿Qué es Nectaryá?</h2>
+        <p>Nectaryá es tu fuente confiable de información sobre el cultivo y beneficios del maracuyá.</p>
     </section>
 
     <section>
-        <h2>Beneficios para la Salud</h2>
-        <p>El maracuyá es rico en antioxidantes, vitaminas y minerales. Se cree que tiene propiedades antiinflamatorias y puede ayudar a mejorar la salud cardiovascular.</p>
+        <h2>Costos de Producción por Hectárea</h2>
+        <button onclick="mostrarCostos()">Mostrar Costos</button>
+        <p id="costos" style="display: none;">Aquí encontrarás información detallada sobre los costos de producción por hectárea.</p>
     </section>
 
     <section>
-        <h2>Recetas con Maracuyá</h2>
-        <p>Prueba estas deliciosas recetas con maracuyá:</p>
-        <ul>
-            <li>Jugo refrescante de maracuyá</li>
-            <li>Tarta de maracuyá</li>
-            <li>Salsa de maracuyá para postres</li>
-        </ul>
+        <h2>Beneficios del Jugo de Maracuyá</h2>
+        <p>Descubre por qué el jugo de maracuyá es beneficioso para tu salud.</p>
     </section>
+
+    <script>
+        function mostrarCostos() {
+            var costosElement = document.getElementById("costos");
+            costosElement.style.display = "block";
+        }
+    </script>
 
     <footer>
-        <p>&copy; 2023 Página de Maracuyá. Todos los derechos reservados.</p>
+        <p>&copy; 2023 Nectaryá. Todos los derechos reservados.</p>
     </footer>
 
 </body>
