@@ -20,10 +20,6 @@
             margin: 20px 0;
         }
 
-        h2 {
-            color: #FFD700; /* Amarillo */
-        }
-
         p {
             line-height: 1.6;
         }
@@ -34,10 +30,15 @@
             padding: 10px 20px;
             border: none;
             cursor: pointer;
+            margin-bottom: 10px;
         }
 
         button:hover {
             background-color: #FFEA00; /* Amarillo claro al pasar el mouse */
+        }
+
+        .hidden {
+            display: none;
         }
 
         footer {
@@ -57,25 +58,17 @@
     </header>
 
     <section>
-        <h2>¿Qué es Nectaryá?</h2>
-        <p>Nectaryá es tu fuente confiable de información sobre el cultivo y beneficios del maracuyá.</p>
-    </section>
-
-    <section>
-        <h2>Costos de Producción por Hectárea</h2>
-        <button onclick="mostrarCostos()">Mostrar Costos</button>
-        <p id="costos" style="display: none;">Aquí encontrarás información detallada sobre los costos de producción por hectárea.</p>
-    </section>
-
-    <section>
-        <h2>Beneficios del Jugo de Maracuyá</h2>
-        <p>Descubre por qué el jugo de maracuyá es beneficioso para tu salud.</p>
+        <button onclick="toggleInfo('costos')">Mostrar Costos de Producción por Hectárea</button>
+        <p id="costos" class="hidden">Aquí encontrarás información detallada sobre los costos de producción por hectárea.</p>
+        
+        <button onclick="toggleInfo('beneficios')">Mostrar Beneficios del Jugo de Maracuyá</button>
+        <p id="beneficios" class="hidden">Descubre por qué el jugo de maracuyá es beneficioso para tu salud.</p>
     </section>
 
     <script>
-        function mostrarCostos() {
-            var costosElement = document.getElementById("costos");
-            costosElement.style.display = "block";
+        function toggleInfo(id) {
+            var element = document.getElementById(id);
+            element.style.display = (element.style.display === 'block') ? 'none' : 'block';
         }
     </script>
 
