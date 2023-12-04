@@ -84,7 +84,7 @@
         <button onclick="toggleInfo('quienesSomos')">Quiénes somos</button>
         <div id="quienesSomos" class="hidden">
             <h2>Quiénes somos</h2>
-            <p>Nectaryá anhela fomentar el bienestar de los pequeños agricultores comercializando sus productos, siendo este el caso de la fruta de maracuyá. El apoyo que se le brindará al campo Colombiano, sumado a las buenas prácticas agrícolas y de manufactura durante el proceso de la evaporación osmótica concluyen en un nectar que podrá ser consumido por la población en general.</p>
+            <p>Somos Nectaryá, una plataforma dedicada a proporcionar información sobre el cultivo y beneficios del maracuyá.</p>
         </div>
 
         <button onclick="toggleInfo('mision')">Misión</button>
@@ -98,7 +98,7 @@
         <div id="vision" class="hidden">
             <h2>Visión</h2>
             <img src="vision.jpg" alt="Imagen de Visión" style="width: 100%;">
-            <p>Para el año 2027 se espera ser una empresa reconocida por su ardua labor en la promoción del cultivo de un producto sobrevalorado cómo lo es la fruta de maracuyá y la gestión integral brindada a los pequeños agricultores. Sumado a esto, la calidad de un producto innovador y de fácil acceso para la población.</p>
+            <p>Nuestra visión es convertirnos en la principal fuente de referencia para todo lo relacionado con el cultivo y uso del maracuyá.</p>
         </div>
 
         <button onclick="toggleInfo('informesCultivo')">Informes del Cultivo de Maracuyá</button>
@@ -142,34 +142,29 @@
             var element = document.getElementById(id);
             element.style.display = 'block';
         }
-        function calculateDimensions() {
-            // Función para calcular dimensiones del envase
-            var liters = parseFloat(document.getElementById('liters').value);
-            var radius = calculateRadius(liters);
-            var height = calculateHeight(liters, radius);
 
+        function calculateDimensions() {
+            var liters = parseFloat(document.getElementById('liters').value);
+            var dimensions = calculateEnvaseDimensions(liters);
+            
             var resultElement = document.getElementById('result');
             var dimensionsElement = document.getElementById('dimensions');
 
-            if (!isNaN(liters) && radius && height) {
+            if (!isNaN(liters) && dimensions) {
                 resultElement.style.display = 'block';
-                dimensionsElement.textContent = 'Para ' + liters + ' mililitros de jugo, se recomienda un envase con radio: ' + radius.toFixed(2) + ' cm y altura: ' + height.toFixed(2) + ' cm.';
+                dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con dimensiones: ' + dimensions;
             } else {
                 resultElement.style.display = 'none';
             }
         }
 
-        function calculateRadius(liters) {
-            // Función para calcular el radio del envase
-            return Math.sqrt(liters / (2 * Math.PI));
-        }
+        function calculateEnvaseDimensions(liters) {
+            var radius = Math.sqrt(liters / (2 * Math.PI));
+            var height = liters / (Math.PI * Math.pow(radius, 2));
 
-        function calculateHeight(liters, radius) {
-            // Función para calcular la altura del envase
-            return liters / (Math.PI * Math.pow(radius, 2));
+            return 'Radio: ' + radius.toFixed(2) + ' cm, Altura: ' + height.toFixed(2) + ' cm';
         }
-    
-            return 'Dimensiones aproximadas';
-        }
+    </script>
+
 </body>
 </html>
