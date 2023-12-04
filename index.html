@@ -74,60 +74,63 @@
 
     <section>
         <button onclick="toggleInfo('quienesSomos')">Quiénes somos</button>
-        <h2 id="quienesSomos" class="hidden">Quiénes somos</h2>
-        <p class="hidden">Somos Nectaryá, una plataforma dedicada a proporcionar información sobre el cultivo y beneficios del maracuyá.</p>
+        <div id="quienesSomos" class="hidden">
+            <h2>Quiénes somos</h2>
+            <p>Somos Nectaryá, una plataforma dedicada a proporcionar información sobre el cultivo y beneficios del maracuyá.</p>
+        </div>
 
         <button onclick="toggleInfo('mision')">Misión</button>
-        <h2 id="mision" class="hidden">Misión</h2>
-        <p class="hidden">Nuestra misión es promover el conocimiento sobre el maracuyá, ofreciendo información precisa y valiosa a agricultores y entusiastas.</p>
+        <div id="mision" class="hidden">
+            <h2>Misión</h2>
+            <img src="mision.jpg" alt="Imagen de Misión" style="width: 100%;">
+            <p>Nuestra misión es promover el conocimiento sobre el maracuyá, ofreciendo información precisa y valiosa a agricultores y entusiastas.</p>
+        </div>
 
         <button onclick="toggleInfo('vision')">Visión</button>
-        <h2 id="vision" class="hidden">Visión</h2>
-        <img src="maracuyas.jpg" alt="Imagen de Maracuyás" style="width: 100%;">
-        <p class="hidden">Nuestra visión es convertirnos en la principal fuente de referencia para todo lo relacionado con el cultivo y uso del maracuyá.</p>
+        <div id="vision" class="hidden">
+            <h2>Visión</h2>
+            <img src="vision.jpg" alt="Imagen de Visión" style="width: 100%;">
+            <p>Nuestra visión es convertirnos en la principal fuente de referencia para todo lo relacionado con el cultivo y uso del maracuyá.</p>
+        </div>
 
         <button onclick="toggleInfo('informesCultivo')">Informes del Cultivo de Maracuyá</button>
-        <h2 id="informesCultivo" class="hidden">Informes del Cultivo de Maracuyá</h2>
-        <p class="hidden">Aquí encontrarás informes detallados sobre el cultivo de maracuyá, con datos y análisis útiles para agricultores.</p>
+        <div id="informesCultivo" class="hidden">
+            <h2>Informes del Cultivo de Maracuyá</h2>
+            <p>Aquí encontrarás informes detallados sobre el cultivo de maracuyá, con datos y análisis útiles para agricultores.</p>
+        </div>
 
         <button onclick="toggleInfo('procesoJugo')">Proceso del Jugo de Maracuyá</button>
-        <h2 id="procesoJugo" class="hidden">Proceso del Jugo de Maracuyá</h2>
-        <p class="hidden">Descubre el proceso de elaboración del delicioso jugo de maracuyá, desde la cosecha hasta la preparación final.</p>
-    </section>
+        <div id="procesoJugo" class="hidden">
+            <h2>Proceso del Jugo de Maracuyá</h2>
+            <p>Descubre el proceso de elaboración del delicioso jugo de maracuyá, desde la cosecha hasta la preparación final.</p>
+        </div>
 
-    <section>
-        <h2>Calcular Dimensiones del Envase</h2>
-        <form id="calculateForm">
-            <label for="liters">Cantidad de Jugo (litros):</label>
-            <input type="number" id="liters" name="liters" required>
-            <button type="button" onclick="calculateDimensions()">Calcular</button>
-        </form>
-
-        <div id="result" class="hidden">
-            <h2>Resultados:</h2>
-            <p id="dimensions"></p>
+        <button onclick="toggleInfo('calcularEnvase')">Calcular Dimensiones del Envase</button>
+        <div id="calcularEnvase" class="hidden">
+            <h2>Calcular Dimensiones del Envase</h2>
+            <form id="calculateForm">
+                <label for="liters">Cantidad de Jugo (litros):</label>
+                <input type="number" id="liters" name="liters" required>
+                <button type="button" onclick="calculateDimensions()">Calcular</button>
+            </form>
+            <div id="result" class="hidden">
+                <h2>Resultados:</h2>
+                <p id="dimensions"></p>
+            </div>
         </div>
     </section>
 
     <script>
         function toggleInfo(id) {
+            var elements = document.querySelectorAll('.hidden');
+            elements.forEach(function(element) {
+                element.style.display = 'none';
+            });
+
             var element = document.getElementById(id);
-            element.style.display = (element.style.display === 'block') ? 'none' : 'block';
+            element.style.display = 'block';
         }
 
         function calculateDimensions() {
             var liters = parseFloat(document.getElementById('liters').value);
             var dimensions = calculateEnvaseDimensions(liters);
-            var resultElement = document.getElementById('result');
-            var dimensionsElement = document.getElementById('dimensions');
-
-            if (!isNaN(liters) && dimensions) {
-                resultElement.style.display = 'block';
-                dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con dimensiones: ' + dimensions;
-            } else {
-                resultElement.style.display = 'none';
-            }
-        }
-
-        function calculateEnvaseDimensions(liters) {
-            // Aquí puedes agregar la lógica de cál
