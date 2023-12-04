@@ -41,6 +41,13 @@
             display: none;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Bordes redondeados para las imágenes */
+            margin-bottom: 10px;
+        }
+
         footer {
             text-align: center;
             padding: 10px;
@@ -58,11 +65,17 @@
     </header>
 
     <section>
-        <button onclick="toggleInfo('costos')">Mostrar Costos de Producción por Hectárea</button>
-        <p id="costos" class="hidden">Aquí encontrarás información detallada sobre los costos de producción por hectárea.</p>
-        
-        <button onclick="toggleInfo('beneficios')">Mostrar Beneficios del Jugo de Maracuyá</button>
-        <p id="beneficios" class="hidden">Descubre por qué el jugo de maracuyá es beneficioso para tu salud.</p>
+        <button onclick="toggleInfo('quienesSomos')">Quiénes somos</button>
+        <p id="quienesSomos" class="hidden">Somos Nectaryá, una plataforma dedicada a proporcionar información sobre el cultivo y beneficios del maracuyá.</p>
+
+        <button onclick="toggleInfo('mision')">Misión</button>
+        <p id="mision" class="hidden">Nuestra misión es promover el conocimiento sobre el maracuyá, ofreciendo información precisa y valiosa a agricultores y entusiastas.</p>
+
+        <button onclick="toggleInfo('vision')">Visión</button>
+        <p id="vision" class="hidden">Nuestra visión es convertirnos en la principal fuente de referencia para todo lo relacionado con el cultivo y uso del maracuyá.</p>
+
+        <button onclick="toggleInfo('informesCultivo')">Informes del Cultivo de Maracuyá</button>
+        <p id="informesCultivo" class="hidden">Aquí encontrarás informes detallados sobre el cultivo de maracuyá, con datos y análisis útiles para agricultores.</p>
     </section>
 
     <script>
