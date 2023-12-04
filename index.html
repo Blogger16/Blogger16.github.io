@@ -124,6 +124,7 @@
             <div id="result" class="hidden">
                 <h2>Resultados:</h2>
                 <p id="dimensions"></p>
+                <p id="area"></p>
             </div>
         </div>
     </section>
@@ -151,9 +152,11 @@
 
                 var resultElement = document.getElementById('result');
                 var dimensionsElement = document.getElementById('dimensions');
+                var areaElement = document.getElementById('area');
 
                 resultElement.style.display = 'block';
                 dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con radio: ' + optimalDimensions.radius.toFixed(2) + ' cm y altura: ' + optimalDimensions.height.toFixed(2) + ' cm.';
+                areaElement.textContent = 'Área del envase: ' + optimalDimensions.area.toFixed(2) + ' cm².';
             }
         }
 
@@ -162,8 +165,9 @@
 
             var radius = Math.sqrt(liters / Math.PI);
             var height = lagrangeMultiplier * radius;
+            var area = 2 * Math.PI * Math.pow(radius, 2) + 2 * Math.PI * radius * height;
 
-            return { radius: radius, height: height };
+            return { radius: radius, height: height, area: area };
         }
     </script>
 
