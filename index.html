@@ -64,6 +64,14 @@
             bottom: 0;
             width: 100%;
         }
+
+        .watermark {
+            font-size: 12px;
+            color: #777;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -120,6 +128,10 @@
         </div>
     </section>
 
+    <footer>
+        <p class="watermark">&copy; 2023 Nectaryá. Todos los derechos reservados.</p>
+    </footer>
+
     <script>
         function toggleInfo(id) {
             var elements = document.querySelectorAll('.hidden');
@@ -134,3 +146,23 @@
         function calculateDimensions() {
             var liters = parseFloat(document.getElementById('liters').value);
             var dimensions = calculateEnvaseDimensions(liters);
+            
+            var resultElement = document.getElementById('result');
+            var dimensionsElement = document.getElementById('dimensions');
+
+            if (!isNaN(liters) && dimensions) {
+                resultElement.style.display = 'block';
+                dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con dimensiones: ' + dimensions;
+            } else {
+                resultElement.style.display = 'none';
+            }
+        }
+
+        function calculateEnvaseDimensions(liters) {
+            // Aquí puedes agregar la lógica de cálculo de dimensiones del envase
+            return 'Dimensiones aproximadas';
+        }
+    </script>
+
+</body>
+</html>
