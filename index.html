@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nectaryá </title>
+    <title>Nectaryá</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,6 +52,10 @@
             margin-bottom: 20px; /* Aumenté el margen */
         }
 
+        form {
+            margin-top: 20px; /* Aumenté el margen entre el formulario y el contenido anterior */
+        }
+
         footer {
             text-align: center;
             padding: 20px; /* Aumenté el padding */
@@ -75,12 +79,12 @@
 
         <button onclick="toggleInfo('mision')">Misión</button>
         <h2 id="mision" class="hidden">Misión</h2>
-        <p class="hidden">Nectaryá anhela fomentar el bienestar de los pequeños agricultores comercializando sus productos, siendo este el caso de la fruta de maracuyá. El apoyo que se le brindará al campo Colombiano, sumado a las buenas prácticas agrícolas y de manufactura durante el proceso de la evaporación osmótica concluyen en un nectar que podrá ser consumido por la población en general.</p>
+        <p class="hidden">Nuestra misión es promover el conocimiento sobre el maracuyá, ofreciendo información precisa y valiosa a agricultores y entusiastas.</p>
 
         <button onclick="toggleInfo('vision')">Visión</button>
         <h2 id="vision" class="hidden">Visión</h2>
         <img src="maracuyas.jpg" alt="Imagen de Maracuyás" style="width: 100%;">
-        <p class="hidden">Para el año 2027 se espera ser una empresa reconocida por su ardua labor en la promoción del cultivo de un producto sobrevalorado cómo lo es la fruta de maracuyá y la gestión integral brindada a los pequeños agricultores. Sumado a esto, la calidad de un producto innovador y de fácil acceso para la población.</p>
+        <p class="hidden">Nuestra visión es convertirnos en la principal fuente de referencia para todo lo relacionado con el cultivo y uso del maracuyá.</p>
 
         <button onclick="toggleInfo('informesCultivo')">Informes del Cultivo de Maracuyá</button>
         <h2 id="informesCultivo" class="hidden">Informes del Cultivo de Maracuyá</h2>
@@ -91,16 +95,39 @@
         <p class="hidden">Descubre el proceso de elaboración del delicioso jugo de maracuyá, desde la cosecha hasta la preparación final.</p>
     </section>
 
+    <section>
+        <h2>Calcular Dimensiones del Envase</h2>
+        <form id="calculateForm">
+            <label for="liters">Cantidad de Jugo (litros):</label>
+            <input type="number" id="liters" name="liters" required>
+            <button type="button" onclick="calculateDimensions()">Calcular</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <h2>Resultados:</h2>
+            <p id="dimensions"></p>
+        </div>
+    </section>
+
     <script>
         function toggleInfo(id) {
             var element = document.getElementById(id);
             element.style.display = (element.style.display === 'block') ? 'none' : 'block';
         }
-    </script>
 
-    <footer>
-        <p>&copy; 2023 Nectaryá. Todos los derechos reservados.</p>
-    </footer>
+        function calculateDimensions() {
+            var liters = parseFloat(document.getElementById('liters').value);
+            var dimensions = calculateEnvaseDimensions(liters);
+            var resultElement = document.getElementById('result');
+            var dimensionsElement = document.getElementById('dimensions');
 
-</body>
-</html>
+            if (!isNaN(liters) && dimensions) {
+                resultElement.style.display = 'block';
+                dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con dimensiones: ' + dimensions;
+            } else {
+                resultElement.style.display = 'none';
+            }
+        }
+
+        function calculateEnvaseDimensions(liters) {
+            // Aquí puedes agregar la lógica de cál
