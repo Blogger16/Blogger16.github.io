@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nectaryá</title>
+    <title>Nectaryá </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,6 +18,10 @@
 
         section {
             margin: 30px 0; /* Aumenté el margen */
+        }
+
+        h2 {
+            font-size: 24px; /* Aumenté el tamaño del título */
         }
 
         p {
@@ -61,27 +65,30 @@
 <body>
 
     <header>
-        <h1>Nectaryá - Página de Maracuyá</h1>
-        <img src="maracuyas.jpg" alt="Imagen de Maracuyás" style="width: 100%;">
+        <h1>Nectaryá</h1>
     </header>
 
     <section>
         <button onclick="toggleInfo('quienesSomos')">Quiénes somos</button>
-        <p id="quienesSomos" class="hidden">Somos Nectaryá, una plataforma dedicada a proporcionar información sobre el cultivo y beneficios del maracuyá.</p>
+        <h2 id="quienesSomos" class="hidden">Quiénes somos</h2>
+        <p class="hidden">Somos Nectaryá, una plataforma dedicada a proporcionar información sobre el cultivo y beneficios del maracuyá.</p>
 
         <button onclick="toggleInfo('mision')">Misión</button>
-        <p id="mision" class="hidden">Nuestra misión es promover el conocimiento sobre el maracuyá, ofreciendo información precisa y valiosa a agricultores y entusiastas.</p>
+        <h2 id="mision" class="hidden">Misión</h2>
+        <p class="hidden">Nectaryá anhela fomentar el bienestar de los pequeños agricultores comercializando sus productos, siendo este el caso de la fruta de maracuyá. El apoyo que se le brindará al campo Colombiano, sumado a las buenas prácticas agrícolas y de manufactura durante el proceso de la evaporación osmótica concluyen en un nectar que podrá ser consumido por la población en general.</p>
 
         <button onclick="toggleInfo('vision')">Visión</button>
-        <p id="vision" class="hidden">Nuestra visión es convertirnos en la principal fuente de referencia para todo lo relacionado con el cultivo y uso del maracuyá.</p>
+        <h2 id="vision" class="hidden">Visión</h2>
+        <img src="maracuyas.jpg" alt="Imagen de Maracuyás" style="width: 100%;">
+        <p class="hidden">Para el año 2027 se espera ser una empresa reconocida por su ardua labor en la promoción del cultivo de un producto sobrevalorado cómo lo es la fruta de maracuyá y la gestión integral brindada a los pequeños agricultores. Sumado a esto, la calidad de un producto innovador y de fácil acceso para la población.</p>
 
         <button onclick="toggleInfo('informesCultivo')">Informes del Cultivo de Maracuyá</button>
-        <p id="informesCultivo" class="hidden">Aquí encontrarás informes detallados sobre el cultivo de maracuyá, con datos y análisis útiles para agricultores.</p>
-    </section>
+        <h2 id="informesCultivo" class="hidden">Informes del Cultivo de Maracuyá</h2>
+        <p class="hidden">Aquí encontrarás informes detallados sobre el cultivo de maracuyá, con datos y análisis útiles para agricultores.</p>
 
-    <section>
         <button onclick="toggleInfo('procesoJugo')">Proceso del Jugo de Maracuyá</button>
-        <p id="procesoJugo" class="hidden">Descubre el proceso de elaboración del delicioso jugo de maracuyá, desde la cosecha hasta la preparación final.</p>
+        <h2 id="procesoJugo" class="hidden">Proceso del Jugo de Maracuyá</h2>
+        <p class="hidden">Descubre el proceso de elaboración del delicioso jugo de maracuyá, desde la cosecha hasta la preparación final.</p>
     </section>
 
     <script>
@@ -96,3 +103,4 @@
     </footer>
 
 </body>
+</html>
