@@ -12,16 +12,16 @@
 
         header {
             text-align: center;
-            padding: 40px; /* Aumenté el padding */
+            padding: 40px;
             background-color: #FFD700; /* Amarillo */
         }
 
         section {
-            margin: 30px 0; /* Aumenté el margen */
+            margin: 30px 0;
         }
 
         h2 {
-            font-size: 24px; /* Aumenté el tamaño del título */
+            font-size: 24px;
         }
 
         p {
@@ -31,10 +31,10 @@
         button {
             background-color: #FFD700; /* Amarillo */
             color: #fff;
-            padding: 15px 30px; /* Aumenté el padding */
+            padding: 15px 30px;
             border: none;
             cursor: pointer;
-            margin-bottom: 20px; /* Aumenté el margen */
+            margin-bottom: 20px;
         }
 
         button:hover {
@@ -49,16 +49,16 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px; /* Bordes redondeados para las imágenes */
-            margin-bottom: 20px; /* Aumenté el margen */
+            margin-bottom: 20px;
         }
 
         form {
-            margin-top: 20px; /* Aumenté el margen entre el formulario y el contenido anterior */
+            margin-top: 20px;
         }
 
         footer {
             text-align: center;
-            padding: 20px; /* Aumenté el padding */
+            padding: 20px;
             background-color: #FFD700; /* Amarillo */
             position: fixed;
             bottom: 0;
@@ -119,7 +119,7 @@
             <form id="calculateForm">
                 <label for="liters">Cantidad de Jugo (litros):</label>
                 <input type="number" id="liters" name="liters" required>
-                <button type="button" onclick="calculateDimensions()">Calcular</button>
+                <button type="button" onclick="calculateOptimalDimensions()">Calcular</button>
             </form>
             <div id="result" class="hidden">
                 <h2>Resultados:</h2>
@@ -143,26 +143,27 @@
             element.style.display = 'block';
         }
 
-        function calculateDimensions() {
+        function calculateOptimalDimensions() {
             var liters = parseFloat(document.getElementById('liters').value);
-            var dimensions = calculateEnvaseDimensions(liters);
-            
-            var resultElement = document.getElementById('result');
-            var dimensionsElement = document.getElementById('dimensions');
 
-            if (!isNaN(liters) && dimensions) {
+            if (!isNaN(liters)) {
+                var optimalDimensions = calculateOptimalEnvaseDimensions(liters);
+
+                var resultElement = document.getElementById('result');
+                var dimensionsElement = document.getElementById('dimensions');
+
                 resultElement.style.display = 'block';
-                dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con dimensiones: ' + dimensions;
-            } else {
-                resultElement.style.display = 'none';
+                dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con radio: ' + optimalDimensions.radius.toFixed(2) + ' cm y altura: ' + optimalDimensions.height.toFixed(2) + ' cm.';
             }
         }
 
-        function calculateEnvaseDimensions(liters) {
-            var radius = Math.sqrt(liters / (2 * Math.PI));
-            var height = liters / (Math.PI * Math.pow(radius, 2));
+        function calculateOptimalEnvaseDimensions(liters) {
+            var lagrangeMultiplier = 1 / (4 * Math.PI);
 
-            return 'Radio: ' + radius.toFixed(2) + ' cm, Altura: ' + height.toFixed(2) + ' cm';
+            var radius = Math.sqrt(liters / Math.PI);
+            var height = lagrangeMultiplier * radius;
+
+            return { radius: radius, height: height };
         }
     </script>
 
