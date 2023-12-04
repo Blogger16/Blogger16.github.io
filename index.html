@@ -142,25 +142,6 @@
             var element = document.getElementById(id);
             element.style.display = 'block';
         }
-
-        function calculateDimensions() {
-            var liters = parseFloat(document.getElementById('liters').value);
-            var dimensions = calculateEnvaseDimensions(liters);
-            
-            var resultElement = document.getElementById('result');
-            var dimensionsElement = document.getElementById('dimensions');
-
-            if (!isNaN(liters) && dimensions) {
-                resultElement.style.display = 'block';
-                dimensionsElement.textContent = 'Para ' + liters + ' litros de jugo, se recomienda un envase con dimensiones: ' + dimensions;
-            } else {
-                resultElement.style.display = 'none';
-            }
-        }
-
-        function calculateEnvaseDimensions(liters) {
-             }
-
         function calculateDimensions() {
             // Función para calcular dimensiones del envase
             var liters = parseFloat(document.getElementById('liters').value);
