@@ -56,6 +56,32 @@
             display: none;
         }
 
+        .submenu {
+            display: none;
+            list-style: none;
+            padding: 0;
+            background-color: #FFD700; /* Amarillo */
+            border-radius: 8px;
+            position: absolute;
+            top: 60px; /* Ajusta la posición del submenú según sea necesario */
+            left: 0;
+            width: 150px; /* Ajusta el ancho del submenú según sea necesario */
+        }
+
+        .submenu li {
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .submenu li:hover {
+            background-color: #FFEA00; /* Amarillo claro al pasar el mouse */
+        }
+
+        .has-submenu:hover .submenu {
+            display: block;
+        }
+
         img {
             max-width: 100%;
             height: auto;
@@ -96,7 +122,15 @@
             <li onclick="toggleInfo('quienesSomos')">Quiénes somos</li>
             <li onclick="toggleInfo('mision')">Misión</li>
             <li onclick="toggleInfo('vision')">Visión</li>
-            <li onclick="toggleInfo('informesCultivo')">Informes del Cultivo</li>
+            <li class="has-submenu">
+                <span>Informes del Cultivo</span>
+                <ul class="submenu">
+                    <li onclick="toggleInfo('climasRecomendados')">Climas Recomendados</li>
+                    <li onclick="toggleInfo('precios')">Precios</li>
+                    <li onclick="toggleInfo('variedades')">Principales Variedades</li>
+                    <li onclick="toggleInfo('beneficios')">Beneficios del Maracuyá</li>
+                </ul>
+            </li>
             <li onclick="toggleInfo('procesoJugo')">Proceso del Jugo</li>
             <li onclick="toggleInfo('calcularEnvase')">Calcular Envase</li>
         </ul>
@@ -110,19 +144,37 @@
 
         <div id="mision" class="hidden">
             <h2>Misión</h2>
-            <img src="mision.jpg" alt="Imagen de Misión" style="width: 100%;">
-            <p>Nuestra misión es promover el conocimiento sobre el maracuyá, ofreciendo información precisa y valiosa a agricultores y entusiastas.</p>
+            <p>"Nectaryá anhela fomentar el bienestar de los pequeños agricultores comercializando sus productos, siendo este el caso de la fruta de maracuyá. El apoyo que se le brindará al campo Colombiano, sumado a las buenas prácticas agrícolas y de manufactura durante el proceso de la evaporación osmótica concluyen en un néctar que podrá ser consumido por la población en general."</p>
         </div>
 
         <div id="vision" class="hidden">
             <h2>Visión</h2>
-            <img src="vision.jpg" alt="Imagen de Visión" style="width: 100%;">
-            <p>Nuestra visión es convertirnos en la principal fuente de referencia para todo lo relacionado con el cultivo y uso del maracuyá.</p>
+            <p>"Para el año 2027 se espera ser una empresa reconocida por su ardua labor en la promoción del cultivo de un producto sobrevalorado cómo lo es la fruta de maracuyá y la gestión integral brindada a los pequeños agricultores. Sumado a esto, la calidad de un producto innovador y de fácil acceso para la población."</p>
         </div>
 
         <div id="informesCultivo" class="hidden">
             <h2>Informes del Cultivo de Maracuyá</h2>
             <p>Aquí encontrarás informes detallados sobre el cultivo de maracuyá, con datos y análisis útiles para agricultores.</p>
+        </div>
+
+        <div id="climasRecomendados" class="hidden">
+            <h2>Climas Recomendados</h2>
+            <p>Información sobre los climas ideales para el cultivo exitoso de maracuyá.</p>
+        </div>
+
+        <div id="precios" class="hidden">
+            <h2>Precios</h2>
+            <p>Consulta los precios actuales del mercado para la fruta de maracuyá.</p>
+        </div>
+
+        <div id="variedades" class="hidden">
+            <h2>Principales Variedades</h2>
+            <p>Descubre las variedades más destacadas de maracuyá y sus características.</p>
+        </div>
+
+        <div id="beneficios" class="hidden">
+            <h2>Beneficios del Maracuyá</h2>
+            <p>Conoce los beneficios para la salud asociados al consumo de maracuyá.</p>
         </div>
 
         <div id="procesoJugo" class="hidden">
