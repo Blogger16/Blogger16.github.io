@@ -132,7 +132,7 @@
                 </ul>
             </li>
             <li onclick="toggleInfo('procesoJugo')">Proceso del Jugo</li>
-            <li onclick="toggleInfo('calcularEnvase')">Calcular Envase</li>
+            <li onclick="toggleInfo('calcularEnvase')">Envases</li>
         </ul>
     </nav>
 
@@ -144,13 +144,13 @@
 
         <div id="mision" class="hidden">
             <h2>Misión</h2>
-            <img src="mision.jpg" alt="Imagen de Misión" style="width: 100%;">
+            <img src="images/mision.jpg" alt="Imagen de Misión" style="width: 100%;">
             <p>Nectaryá anhela fomentar el bienestar de los pequeños agricultores comercializando sus productos, siendo este el caso de la fruta de maracuyá. El apoyo que se le brindará al campo Colombiano, sumado a las buenas prácticas agrícolas y de manufactura durante el proceso de la evaporación osmótica concluyen en un néctar que podrá ser consumido por la población en general.</p>
         </div>
 
         <div id="vision" class="hidden">
             <h2>Visión</h2>
-            <img src="vision.jpg" alt="Imagen de Visión" style="width: 100%;">
+            <img src="images/vision.jpg" alt="Imagen de Visión" style="width: 100%;">
             <p>Para el año 2027 se espera ser una empresa reconocida por su ardua labor en la promoción del cultivo de un producto sobrevalorado cómo lo es la fruta de maracuyá y la gestión integral brindada a los pequeños agricultores. Sumado a esto, la calidad de un producto innovador y de fácil acceso para la población.</p>
         </div>
 
@@ -243,7 +243,11 @@
             var height = lagrangeMultiplier * radius;
             var area = 2 * Math.PI * Math.pow(radius, 2) + 2 * Math.PI * radius * height;
 
-            return { radius: radius, height: height, area: area };
+            return {
+                radius: radius,
+                height: height,
+                area: area
+            };
         }
     </script>
 
